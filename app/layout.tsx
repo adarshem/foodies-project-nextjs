@@ -1,9 +1,9 @@
-import React, { ReactNode } from "react";
-import "./globals.css";
+import './globals.css';
+import MainHeader from '@/components/common/mainHeader';
 
 export const metadata = {
-  title: "NextLevel Food",
-  description: "Delicious meals, shared by a food-loving community.",
+  title: 'NextLevel Food',
+  description: 'Delicious meals, shared by a food-loving community.',
 };
 
 export default function RootLayout({
@@ -20,11 +20,11 @@ export default function RootLayout({
               <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop
                   offset="0%"
-                  style={{ stopColor: "#59453c", stopOpacity: "1" }}
+                  style={{ stopColor: '#59453c', stopOpacity: '1' }}
                 />
                 <stop
                   offset="100%"
-                  style={{ stopColor: "#8f3a09", stopOpacity: "1" }}
+                  style={{ stopColor: '#8f3a09', stopOpacity: '1' }}
                 />
               </linearGradient>
             </defs>
@@ -34,7 +34,7 @@ export default function RootLayout({
             ></path>
           </svg>
         </div>
-
+        <MainHeader />
         {children}
       </body>
     </html>
