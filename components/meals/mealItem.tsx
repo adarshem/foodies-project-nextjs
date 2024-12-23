@@ -5,13 +5,13 @@ import classes from './styles/mealItem.module.css';
 
 export default function MealItem({
   title,
-  id,
+  slug,
   image,
   summary,
   creator,
 }: {
   title: string;
-  id: string;
+  slug: string;
   image: string;
   summary: string;
   creator: string;
@@ -30,7 +30,7 @@ export default function MealItem({
       <div className={classes.content}>
         <p className={classes.summary}>{summary}</p>
         <div className={classes.actions}>
-          <Link href={`/meals/${id}`}>View Details</Link>
+          <Link href={`/meals/${slug}`}>View Details</Link>
         </div>
       </div>
     </article>

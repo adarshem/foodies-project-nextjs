@@ -6,7 +6,7 @@ export default function MealsGrid({
 }: {
   meals: {
     title: string;
-    id: string;
+    slug: string;
     image: string;
     summary: string;
     creator: string;
@@ -15,7 +15,7 @@ export default function MealsGrid({
   return (
     <ul className={classes.meals}>
       {meals?.map((meal) => (
-        <li key={meal.id}>
+        <li key={meal.slug}>
           <MealItem {...meal} />
         </li>
       ))}
