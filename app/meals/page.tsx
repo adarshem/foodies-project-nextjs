@@ -1,17 +1,25 @@
 import Link from 'next/link';
+import MealsGrid from '@/components/meals/mealsGrid';
+import classes from './page.module.css';
 
-export default function Meals(): React.JSX.Element {
+export default function MealsPage(): React.JSX.Element {
   return (
-    <main>
-      <h1 style={{ color: 'white', textAlign: 'center' }}>Meals Page</h1>
-      <div style={{ textAlign: 'center' }}>
+    <>
+      <header className={classes.header}>
+        <h1>
+          Delicium meals, created{' '}
+          <span className={classes.highlight}>by you</span>
+        </h1>
         <p>
-          <Link href={'/meals/meal_id_1'}>Meal - Chicken Biryani</Link>
+          Choose your favorite recipe and cook it yourself. It is easy and fun
         </p>
-        <p>
-          <Link href={'/meals/meal_id_2'}>Meal - Paneer Buttor Masla</Link>
+        <p className={classes.cta}>
+          <Link href="/meals/share">Share your favorite recipe</Link>
         </p>
-      </div>
-    </main>
+      </header>
+      <main className={classes.main}>
+        <MealsGrid meals={[]} />
+      </main>
+    </>
   );
 }
