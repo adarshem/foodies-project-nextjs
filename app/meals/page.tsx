@@ -2,11 +2,16 @@ import Link from 'next/link';
 import MealsGrid from '@/components/meals/mealsGrid';
 import { getMeals } from '@/lib/meals';
 import classes from './page.module.css';
+import React, { Suspense } from 'react';
 
 // Server component that fetches meals from the database and renders them
-export default async function MealsPage(): Promise<React.JSX.Element> {
+
+async function Meals(): Promise<React.JSX.Element> {
   const meals = await getMeals();
-  
+  return <MealsGrid meals={meals} />;
+}
+
+export default function MealsPage(): React.JSX.Element {
   return (
     <>
       <header className={classes.header}>
@@ -22,7 +27,11 @@ export default async function MealsPage(): Promise<React.JSX.Element> {
         </p>
       </header>
       <main className={classes.main}>
-        <MealsGrid meals={meals} />
+        <Suspense
+          fallback={<p className={classes.loading}>Fetching meals...</p>}
+        >
+          <Meals />
+        </Suspense> 
       </main>
     </>
   );
