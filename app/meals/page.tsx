@@ -31,7 +31,7 @@ export default function MealsPage(): React.JSX.Element {
           fallback={<p className={classes.loading}>Fetching meals...</p>}
         >
           <Meals />
-        </Suspense> 
+        </Suspense>
       </main>
     </>
   );

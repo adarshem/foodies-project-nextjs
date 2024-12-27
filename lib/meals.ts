@@ -4,6 +4,11 @@ const db = sql('meals.db');
 
 // Get all meals from the sqlite database
 export async function getMeals() {
-  await new Promise((resolve) => setTimeout(resolve, 2000));  
+  await new Promise((resolve) => setTimeout(resolve, 2000));  // For checking loading state
   return db.prepare('SELECT * FROM meals').all();
+}
+
+
+export function getMeal(slug: string) {
+  return db.prepare('SELECT * FROM meals WHERE slug = ?').get(slug);
 }
