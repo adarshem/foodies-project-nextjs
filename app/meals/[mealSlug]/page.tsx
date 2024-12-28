@@ -3,6 +3,23 @@ import classes from './page.module.css';
 import { getMeal } from '@/lib/meals';
 import { notFound } from 'next/navigation';
 
+// Dynamic metadata for the meal details page
+export async function generateMetadata({
+  params,
+}: {
+  params: { mealSlug: string };
+}): Promise<{ title: string }> {
+  const meal = getMeal(params.mealSlug);
+
+  if (!meal) {
+    notFound();
+  }
+
+  return {
+    title: meal.title,
+  };
+}
+
 export default function MealDetails({
   params,
 }: {

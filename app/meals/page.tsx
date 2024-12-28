@@ -4,8 +4,13 @@ import { getMeals } from '@/lib/meals';
 import classes from './page.module.css';
 import React, { Suspense } from 'react';
 
-// Server component that fetches meals from the database and renders them
+// Static metadata for the meals page
+export const metadata = {
+  title: 'All meals',
+  description: 'Delicious meals, shared by a food-loving community.',
+};
 
+// Server component that fetches meals from the database and renders them
 async function Meals(): Promise<React.JSX.Element> {
   const meals = await getMeals();
   return <MealsGrid meals={meals} />;
