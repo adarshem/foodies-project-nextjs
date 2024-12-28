@@ -1,6 +1,7 @@
 'use server';
 import { redirect } from 'next/navigation';
 import { saveMeal } from './meals';
+import { revalidatePath } from 'next/cache';
 
 // All the functions in this file will be executed on the server
 
@@ -34,5 +35,6 @@ export async function shareMeal(prevState: any, formData: FormData) {
   }
 
   await saveMeal(meal);
+  revalidatePath('/meals');
   redirect('/meals');
 }
