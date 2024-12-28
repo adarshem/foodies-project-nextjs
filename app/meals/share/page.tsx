@@ -7,7 +7,7 @@ import classes from './page.module.css';
 
 export default function ShareMealPage() {
   const [state, formAction] = useFormState(shareMeal, {
-    message: null,
+    message: '',
   });
 
   return (
