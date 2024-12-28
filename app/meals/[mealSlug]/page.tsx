@@ -6,9 +6,9 @@ import { notFound } from 'next/navigation';
 export default function MealDetails({
   params,
 }: {
-  params: { mealId: string };
+  params: { mealSlug: string };
 }): React.JSX.Element {
-  const mealData = getMeal(params.mealId);
+  const mealData = getMeal(params.mealSlug);
 
   if (!mealData) {
     notFound();
